@@ -1,35 +1,50 @@
 package lab;
-import java.io.*;
-import static java.lang.Math.*;
 
 public class Quadratic {
-	public static void main(String[] args) {
-		int a = 1, b = -7, c = 12;
-	    findRoots(a, b, c);
+	public static void main(String args[]) {
+		A obj = new A(1,2,3);
+		float result = obj.compute(5);
+		System.out.println(result);
 	}
-	static void findRoots(int a, int b, int c){
-		if (a == 0) {
-			System.out.println("Invalid");
-			return;
-		}
-		int d = b * b - 4 * a * c;
-	    double sqrt_val = sqrt(abs(d));
+}
+
+class A{
 	
-	    if (d > 0) {
-	    	System.out.println("Roots are real and different");
-	        double root1 = (-b + sqrt_val) / (2 * a); 
-	        double root2 = (-b - sqrt_val) / (2 * a);
-	    	System.out.println(root1 + " " + root2);
-	     }
-	     else if (d == 0) {
-	         System.out.println("Roots are real and same \n");
-	         System.out.println(-(double)b / (2 * a) + " " + -(double)b / (2 * a));
-	     }
-	     else
-	     {
-	         System.out.println("Roots are complex \n");
-	         System.out.println(-(double)b / (2 * a) + " + i" + sqrt_val + " and "
-	                            + -(double)b / (2 * a) + " - i" + sqrt_val);
-	     }
-	 }
+	private int a = 0;
+	private int b = 0;
+	private int c = 0;
+	
+	public A() {
+		this.a = 1;
+		this.b = 1;
+		this.c = 1;
+	}
+	
+	public A(int a, int b, int c) {
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+	
+	public int getA(){
+		return this.a;
+	}
+	
+	public int getB(){
+		return this.b;
+	}
+	
+	public int getC(){
+		return this.c;
+	}
+	
+	public void setABC(int a, int b, int c) {
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+	
+	public float compute(int x) {
+		return ((this.a * x * x) + (this.b * x) + this.c);
+	}
 }
