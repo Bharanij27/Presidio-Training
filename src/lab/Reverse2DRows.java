@@ -23,6 +23,7 @@ public class Reverse2DRows {
 			}
 			System.out.println("");
 		}
+		s.close();
 	}
 	
 	static void reverseArray(int[][] arr, int row, int col) {

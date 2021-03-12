@@ -52,5 +52,6 @@ public class CategorizeNumber {
 		int num = scan.nextInt();
 		isArmstrongAndPalindrome(num);
 		isPerfect(num);
+		scan.close();
 	}
 }

@@ -17,5 +17,6 @@ public class PrimeNumbers {
 		a = scan.nextInt();
 		String result = isPrime(a) == true ? "Prime Number" : "Non Prime Number" ;
 		System.out.println(result);
+		scan.close();
 	}
 }

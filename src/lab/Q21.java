@@ -27,5 +27,6 @@ public class Q21 {
 			System.out.println("30 days"); 
 			break;
 		}
+		s.close();
 	}
 }

@@ -23,5 +23,6 @@ public class LocationAndCount {
 		int element = scan.nextInt();
 		String result = findElement(arr, element);
 		System.out.println(result);
+		scan.close();
 	}
 }

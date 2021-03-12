@@ -22,5 +22,6 @@ public class RectangularArray {
 			}
 			System.out.println();
 		}
+		scan.close();
 	}
 }

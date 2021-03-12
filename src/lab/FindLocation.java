@@ -19,5 +19,6 @@ public class FindLocation {
 		int element = scan.nextInt();
 		String result = locationOf(arr, element);
 		System.out.println(result);
+		scan.close();
 	}
 }

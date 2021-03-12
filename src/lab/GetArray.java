@@ -13,6 +13,7 @@ public class GetArray {
 		for (int i = 0; i < arraySize; i++) {
 			numbers[i] = scan.nextInt();
 		}
+		scan.close();
 		return numbers;
 	}
 }

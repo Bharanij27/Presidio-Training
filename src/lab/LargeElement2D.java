@@ -16,6 +16,7 @@ public class LargeElement2D {
 			}
 		}
 		findLargest(arr);
+		s.close();
 	}
 	
 	static void findLargest(int[][] arr){

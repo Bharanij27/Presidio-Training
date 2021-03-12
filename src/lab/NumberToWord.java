@@ -43,5 +43,6 @@ public class NumberToWord {
 		int num = scan.nextInt();
 		if(num == 0) System.out.print("Zero");
 		else System.out.println(convertToWord(num));
+		scan.close();
 	}
 }

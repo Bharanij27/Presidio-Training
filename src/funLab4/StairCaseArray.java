@@ -1,11 +1,11 @@
-package lab;
+package funLab4;
 
 import java.util.Scanner;
 
 public class StairCaseArray {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter array size : ");
+		System.out.println("Enter stair length : ");
 		int size = scan.nextInt();
 		int arr[][] = new  int[size][];
 		

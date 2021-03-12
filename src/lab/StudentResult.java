@@ -19,5 +19,6 @@ public class StudentResult {
 			double avg = AverageOfN.averageOf(studentsMarks[i]);
 			System.out.println("Total mark of Student " + (i+1) + " is " + (int)(avg * 3) + "/300 and average is " + avg);
 		}
+		scan.close();
 	}
 }

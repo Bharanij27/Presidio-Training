@@ -35,5 +35,6 @@ public class SortArray {
 		} while(sortType != 1 && sortType != 2);
 		sort(arr, sortType);
 		printArray(arr);
+		scan.close();
 	}
 }
