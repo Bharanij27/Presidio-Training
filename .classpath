@@ -16,5 +16,10 @@
 	<classpathentry kind="lib" path="lib/aspose-cells-21.3.jar"/>
 	<classpathentry kind="lib" path="lib/aspose-gridweb-21.3.jar"/>
 	<classpathentry kind="lib" path="lib/bcprov-jdk15on-160.jar"/>
+	<classpathentry kind="lib" path="lib/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/activation-jaf1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/mail.jar"/>
+	<classpathentry kind="lib" path="lib/activation.jar"/>
+	<classpathentry kind="lib" path="lib/twilio-8.9.0-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
