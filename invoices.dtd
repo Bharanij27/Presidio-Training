@@ -1,0 +1,17 @@
+<!ELEMENT invoice (items)>
+<!ELEMENT items (item)*>
+<!ELEMENT item (description, price, qty)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT qty (#PCDATA)>
+
+<!ATTLIST invoice invno CDATA #REQUIRED>
+<!ATTLIST item id CDATA #REQUIRED>
+
+<!---
+*  - o or many
++ - 1 or many
+? 0 or 1
+
+
+-->

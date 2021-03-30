@@ -1,0 +1,15 @@
+<!ELEMENT books (book)*>
+<!ELEMENT book (name,author,price)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+
+<!ATTLIST book bid CDATA #REQUIRED>
+
+<!---
+*  - o or many
++ - 1 or many
+? 0 or 1
+
+
+-->

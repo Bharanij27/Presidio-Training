@@ -1,0 +1,15 @@
+<!DOCTYPE invoice SYSTEM "invoices.dtd">
+<invoice invno="1010a">
+	<items>
+		<item id="a001">
+			<description>daal</description>
+			<price>12</price>
+			<qty>2</qty>
+		</item>
+		<item id="a002">
+			<description>daal</description>
+			<price>12</price>
+			<qty>2</qty>
+		</item>
+	</items>
+</invoice>

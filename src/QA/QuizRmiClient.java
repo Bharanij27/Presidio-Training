@@ -17,9 +17,8 @@ public class QuizRmiClient {
 	static ExecutorService service = Executors.newFixedThreadPool(1);
 	
 	public static void main(String[] args) throws Exception{
-	
-		System.out.println(Naming.lookup("rmi://localhost:1099/rmiservice/quizService"));
-		quiz = (QuizProgram)Naming.lookup("rmi://localhost:1099/rmiservice/quizService");
+
+		quiz = (QuizProgram)Naming.lookup("rmi://localhost:3000/rmiservice/quizService");
 		
 		System.out.println("Enter number of questions : ");
 		Scanner scan = new Scanner(System.in);

@@ -1,5 +1,6 @@
 package excelLab;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -12,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 
 public class TableFooter {
-	
+
 	public void getFooter(XSSFSheet sheet) {
 			Iterator<Row> rowIterator = sheet.iterator();
             Row row = rowIterator.next();

@@ -13,15 +13,6 @@ public class QuestionAnswer extends UnicastRemoteObject implements QuizProgram{
 	Map<Integer, Question> questions = new HashMap<Integer, Question>();
 	Map<Integer, Integer> answers = new HashMap<Integer, Integer>();
 	
-//	public QuestionAnswer(int qCount) throws RemoteException{
-//		this.questionCount = qCount;
-//		System.out.println("You have " + qCount * 10 + " secs to answer all questions");
-//		createQuestions();
-//		makeTimer(questionCount);
-//		showQuestions(questionCount);
-//		verifyAnswer(questionCount);
-//	}
-	
 	public QuestionAnswer() throws RemoteException {
 		// TODO Auto-generated constructor stub
 	}
@@ -64,9 +55,9 @@ public class QuestionAnswer extends UnicastRemoteObject implements QuizProgram{
 		System.out.println("aa");
 
 		QuestionAnswer rmiService = new QuestionAnswer();
-		LocateRegistry.createRegistry(1099);		
+		LocateRegistry.createRegistry(9010);		
 		
 		System.out.println("Server Ready....");
-		Naming.bind("rmi://localhost:1099/rmiservice/quizService", rmiService);
+		Naming.bind("rmi://localhost:9010/rmiservice/quizService", rmiService);
 	}
 }

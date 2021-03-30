@@ -1,11 +1,14 @@
 package Invoice;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.time.LocalDate;
 
-public interface PackageDeliveryEstimation {
-	public LocalDate calculateArrrival();
-	public double perDayTravel(double speed, int workHour);
-	public boolean isHoliday(LocalDate date);
+public interface PackageDeliveryEstimation extends Remote{
+	public LocalDate calculateArrrival() throws RemoteException ;
+	public double perDayTravel(double speed, int workHour) throws RemoteException ;
+	public boolean isHoliday(LocalDate date) throws RemoteException ;
+	public void initializeDelvery(LocalDate orderDate, double distance, double speed, int workHour) throws RemoteException;
 }
 
 /*

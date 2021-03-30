@@ -1,0 +1,27 @@
+<!-- <!DOCTYPE books SYSTEM "books.dtd">
+ --><books>
+	<book bid="01">
+		<name>Life of Joy</name>
+		<author>
+			<fname>Alia</fname>
+			<lname>
+				<ffname>dad</ffname>
+				<ContactInfo>
+					<address>
+						<validInfo>Sampple street</validInfo>
+						<State>TN</State>
+					</address>
+				</ContactInfo>
+			</lname>
+		</author>
+		<price>90</price>
+	</book>
+	<book bid="02">
+		<name>Life of Joy</name>
+		<author>
+			<fname>Alia</fname>
+			<lname>Thomas</lname>
+		</author>
+		<price>90</price>
+	</book>
+</books>
