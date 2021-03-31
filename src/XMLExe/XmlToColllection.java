@@ -3,7 +3,9 @@ package XMLExe;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Stack;
+import java.util.TreeMap;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -13,17 +15,20 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class XmlToColllection {
-	public static void main(String[] args) throws Exception {
+	public Map<String, Object> toCollection() throws Exception {
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		SAXParser sp = spf.newSAXParser();
 		FileInputStream fis = new FileInputStream("invoices.xml");
 		MyProcessHandler handler = new MyProcessHandler();
 		sp.parse(fis, handler);
 		
+		Map<String, Object> data = new TreeMap<String, Object>();
+		
 		for (Iterator iterator = handler.getUsers().iterator(); iterator.hasNext();) {
-			Item type = (Item) iterator.next();
-			System.out.println(type.toString());
+			Item product = (Item) iterator.next();
+			data.put(product.id, product.toObject());
 		}
+		return data;
 	}
 }
 
@@ -139,4 +144,8 @@ class Item{
 	public String toString() {
 		return this.id + " " + this.description + " " + this.price + " " + this.qty;
 	}
+	
+	public Object[] toObject(){
+		return new Object[] {this.description, this.qty, this.price};
+ 	}
 }

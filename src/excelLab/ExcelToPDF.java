@@ -19,7 +19,7 @@ public class ExcelToPDF implements Serializable{
     {   
         try
 	    {
-        	PdfConverter excelConverter = (PdfConverter)Naming.lookup("rmi://localhost:5000/rmiservice/PdfConverter");
+        	PdfConverter excelConverter = (PdfConverter)Naming.lookup("rmi://localhost:4070/rmiservice/PdfConverter");
         	byte[] bs = excelConverter.createExcel();
         	InputStream inputStream = new ByteArrayInputStream(bs);
 
@@ -48,5 +48,6 @@ public class ExcelToPDF implements Serializable{
 	public static void convertToPDF() throws Exception {
 		Workbook workbook = new Workbook("invoice.xlsx");
 		workbook.save("Excel-to-PDF.pdf", SaveFormat.PDF); 	// Save the document in PDF format
+		System.out.println("Converted to pdf suceessfully.....");
 	}
 }

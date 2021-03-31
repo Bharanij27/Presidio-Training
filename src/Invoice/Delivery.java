@@ -3,13 +3,18 @@ package Invoice;
 import java.rmi.Naming;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Delivery {
 	public static void main(String[] args) throws Exception {
-		PackageDeliveryEstimation delivery = (PackageDeliveryEstimation)Naming.lookup("rmi://localhost:4000/rmiservice/PdfConverter");
-		LocalDate startingDay = LocalDate.of(2020, Month.DECEMBER, 31);
-		delivery.initializeDelvery(startingDay, 300, 2, 5);
-		System.out.println("Your package is estimated to delivered on " + delivery.calculateArrrival().toString());
+		PackageDeliveryEstimation delivery = (PackageDeliveryEstimation)Naming.lookup("rmi://localhost:4010/rmiservice/PackageDeliveryEstimation");
+		Map<Integer, Object> data = new XmlToData().toCollection();
+		for (Map.Entry<Integer,Object> entry : data.entrySet()) {			
+			Order d = (Order) entry.getValue();
+			delivery.initializeDelvery(d.getOrderDate(), d.getDistance(), d.getSpeed(), d.getWorkHour());
+			System.out.println("Your package is estimated to delivered on " + delivery.calculateArrrival().toString());
+		}
 	}
 }
 

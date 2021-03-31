@@ -19,6 +19,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.aspose.cells.SaveFormat;
 import com.aspose.cells.Workbook;
 
+import XMLExe.XmlToColllection;
+
 public class ExcelServer extends UnicastRemoteObject implements PdfConverter{
 	NewWorkBook wb;
 	public ExcelServer() throws RemoteException{
@@ -30,22 +32,19 @@ public class ExcelServer extends UnicastRemoteObject implements PdfConverter{
 		wb  = new NewWorkBook();
 		XSSFWorkbook workbook = wb.getWorkbook();
 	    XSSFSheet sheet = workbook.createSheet("Invoice");
-	        
 	    int productCount = 0;
-	    Map<Integer, Object> data = new TreeMap<Integer, Object>();
-	    data.put(productCount++, new Object[] {"Web Design", 1, 1000.00});
-	    data.put(productCount++, new Object[] {"Logo Design", 2, 420.0});
-	    data.put(productCount++, new Object[] {"Animation Video", 1, 399.90});
-	    data.put(productCount++, new Object[] {"Image Editing", 3, 450.00});
+	        
+	    XmlToColllection xml = new XmlToColllection();
+	    Map<String, Object> data = xml.toCollection();
 	        
 	    TableHeader header = new TableHeader();
 	    header.setHeader(sheet);
 	        
 	    double totalPrice = 0;
 	        //Iterate over data and write to sheet
-	    Set<Integer> keyset = data.keySet();
+	    Set<String> keyset = data.keySet();
 	    int rownum = 1;
-	    for (Integer key : keyset)
+	    for (String key : keyset)
 	    {
 	    	Row row = sheet.createRow(rownum++);
 	        Object [] objArr = (Object[]) data.get(key);

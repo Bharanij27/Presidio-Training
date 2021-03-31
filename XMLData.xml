@@ -1,0 +1,22 @@
+<Delivery>
+	<Package>
+		<orderDate>
+			<day>2</day>
+			<month>7</month>
+			<year>2020</year>
+		</orderDate>
+		<distance>1000</distance>
+		<speed>20</speed>
+		<workHour>5</workHour>
+	</Package>
+	<Package>
+		<orderDate>
+			<day>19</day>
+			<month>9</month>
+			<year>2020</year>
+		</orderDate>
+		<distance>2000</distance>
+		<speed>17</speed>
+		<workHour>8</workHour>
+	</Package>
+</Delivery>
