@@ -2,6 +2,7 @@ package Invoice;
 
 import java.io.FileInputStream;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -100,7 +101,7 @@ class MyProcessHandler extends DefaultHandler{
         else if ("year".equals(currentElement()))
         {
         	order.setYear(Integer.parseInt(value));
-        	order.setOrderDate(LocalDate.of(order.year, order.month, order.day));
+        	order.setOrderDate(LocalDateTime.of(order.year, order.month, order.day, 0, 0));
         }
         else if ("workHour".equals(currentElement()))
         {
@@ -129,7 +130,7 @@ class MyProcessHandler extends DefaultHandler{
 
 class Order{
 	int day, month, year;
-	LocalDate orderDate;
+	LocalDateTime orderDate;
 	double distance;
 	double speed;
 	int workHour;
@@ -170,11 +171,11 @@ class Order{
 	
 	
 	
-	public LocalDate getOrderDate() {
+	public LocalDateTime getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(LocalDate orderDate) {
+	public void setOrderDate(LocalDateTime orderDate) {
 		this.orderDate = orderDate;
 	}
 

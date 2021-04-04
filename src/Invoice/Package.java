@@ -3,10 +3,10 @@ package Invoice;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.server.UnicastRemoteObject;
-import java.time.LocalDate;
+import java.rmi.server.UnicastRemoteObject;import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
-import day16.RmiService;
 
 public class Package extends UnicastRemoteObject implements PackageDeliveryEstimation{
 	
@@ -14,16 +14,17 @@ public class Package extends UnicastRemoteObject implements PackageDeliveryEstim
 		// TODO Auto-generated constructor stub
 	}
 
-	LocalDate date;
+	LocalDateTime date;
 	double distance, distanceReamining;
 	double distancePerDay;
-
+	double speed;
 	
 	@Override
-	public void initializeDelvery(LocalDate orderDate, double distance, double speed, int workHour) throws RemoteException {
+	public void initializeDelvery(LocalDateTime orderDate, double distance, double speed, int workHour) throws RemoteException {
 		this.date = orderDate;
 		this.distance = distance;
 		this.distanceReamining = distance;
+		this.speed  = speed;
 		this.distancePerDay = perDayTravel(speed, workHour);
 	}
 	
@@ -33,22 +34,29 @@ public class Package extends UnicastRemoteObject implements PackageDeliveryEstim
 	}
 	
 	@Override
-	public LocalDate calculateArrrival() throws RemoteException {
-		LocalDate today = date.plusDays(1);
-		while(this.distanceReamining > 0) {
+	public String calculateArrrival() throws RemoteException {
+		LocalDateTime today = this.date;
+		long time  = 0;
+		while(this.distanceReamining > 0 ) {
 			
 			if(!isHoliday(today)) {
-				this.distanceReamining -= this.distancePerDay;
-				//System.out.println("can deliver on " + today.toString() +  "  " +isHoliday(today));
+				if(this.distanceReamining <= this.distancePerDay) time = calculateTime(this.distanceReamining);
+				this.distanceReamining -= this.distancePerDay; 
 			}
-			//else	System.out.println("can't deliver on " + today.toString() + "  " + isHoliday(today));
-			today = today.plusDays(1);
+			if(distanceReamining > 0) today = today.plusDays(1);
 		}
-		return today;
+		today = today.plus(time, ChronoUnit.SECONDS);  
+		return today.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")).toString();
 	}
 	
+	public long calculateTime(double distance) {
+		double time = distance / this.speed;
+		System.out.println((long) (time * 60 *60));
+		return (long) (time * 60 *60);
+	}
+
 	@Override
-	public boolean isHoliday(LocalDate date) throws RemoteException {
+	public boolean isHoliday(LocalDateTime date) throws RemoteException {
 		
 		if("SUNDAY".equalsIgnoreCase(date.getDayOfWeek().toString())) return true;
 		
