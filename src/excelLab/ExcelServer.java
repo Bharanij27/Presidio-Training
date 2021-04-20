@@ -33,7 +33,11 @@ public class ExcelServer extends UnicastRemoteObject implements PdfConverter{
 		XSSFWorkbook workbook = wb.getWorkbook();
 	    XSSFSheet sheet = workbook.createSheet("Invoice");
 	    int productCount = 0;
-	        
+	     
+	    
+	    // create blank 
+	    
+	    // get data from DB
 	    XmlToColllection xml = new XmlToColllection();
 	    Map<String, Object> data = xml.toCollection();
 	        
@@ -47,7 +51,7 @@ public class ExcelServer extends UnicastRemoteObject implements PdfConverter{
 	    for (String key : keyset)
 	    {
 	    	Row row = sheet.createRow(rownum++);
-	        Object [] objArr = (Object[]) data.get(key);
+	    	Object [] objArr = (Object[]) data.get(key);
 	        int cellnum = 0;
 		    for (int i = 0; i < objArr.length; i++)
 		    {
@@ -66,7 +70,7 @@ public class ExcelServer extends UnicastRemoteObject implements PdfConverter{
 		 }
 	        
 	     TableFooter tf = new TableFooter();
-	     tf.setFooter(sheet, rownum, totalPrice, 10, 5, 100);
+	     tf.setFooter(sheet, rownum, totalPrice, 10, 5, 10);
 	        
 	     autoFit(workbook);
 	     System.out.println(11);

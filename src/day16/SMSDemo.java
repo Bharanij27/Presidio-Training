@@ -7,12 +7,12 @@ public class SMSDemo {
 	public static final String ACCOUNT_SID = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 	public static final String AUTH_TOKEN = "your_auth_token";
 
-	public static void main(String[] args) {
+	public void sendSMS(String[] args) {
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
 		Message message = Message.creator(new PhoneNumber("+15558675309"),
 				new PhoneNumber("+15017250604"), 
-				"This is the ship that made the Kessel Run in fourteen parsecs?").create();
+				"INVOICE ID" + args.toString()).create();
 
 		System.out.println(message.getSid());
 	}
